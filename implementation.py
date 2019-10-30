@@ -27,6 +27,10 @@ class Person:
         sql = """
 
                 """
+        sql = """
+
+                """
+        self.criminal = self.cur.execute(sql)
         self.idea_list=self.cur.execute(sql).split('***')
         self.alive=True
 
@@ -109,7 +113,9 @@ class Room:
         sql = """
 
                         """
-        self.sound = self.cur.execute(sql)
+        if self.cur.execute(sql) != None:
+            self.sound = self.cur
+        else: self.sound = None
         sql = """
 
                         """
@@ -121,6 +127,8 @@ class Room:
     def room_look(self):
         if self.look != None:
             print(self.look)
+        if self.look != None:
+            print(self.sound)
         print('in this rom U see')
         for i in self.things:
             print(i.name)
@@ -142,5 +150,3 @@ class Room:
                 found = True
         if not found:
             print('this thing is not in this room')
-
-    
