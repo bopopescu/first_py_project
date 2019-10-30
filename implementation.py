@@ -75,6 +75,20 @@ class Things:
                 """
         x = self.cur.execute(sql)
         self.finger_prints = x.split()
+        self.isPicked = False
 
-    def print_finger(self):
-        pass
+    def print_finger(self, person_list):
+        print('there is fingerprint of')
+        ########################################################what is type of  i  ?  ?
+        for i in (self.finger_prints):
+           for j in person_list:
+               if i.__eq__(j.id):
+                   print(j.name+'and')
+
+    def pick(self, bag):
+        if self.pickable:
+            if not self.isPicked:
+                self.isPicked = True
+                bag.append(self)
+            else:print('this thing is picked before')
+        else:print('this is not pickable')
