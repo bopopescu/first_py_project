@@ -92,3 +92,54 @@ class Things:
                 bag.append(self)
             else:print('this thing is picked before')
         else:print('this is not pickable')
+
+
+class Room:
+    def __init__(self, things_list):
+        connector = mysql.connector.connect(user='root', database='DeadStory', password='3Amypc3A')
+        self.cur = connector.cursor()
+        sql = """
+
+                        """
+        self.id = self.cur.execute(sql)
+        sql = """
+
+                        """
+        self.name = self.cur.execute(sql)
+        sql = """
+
+                        """
+        self.sound = self.cur.execute(sql)
+        sql = """
+
+                        """
+        if self.cur.execute(sql) != None:
+            self.look = self.cur
+        else: self.look = None
+        self.things=things_list
+
+    def room_look(self):
+        if self.look != None:
+            print(self.look)
+        print('in this rom U see')
+        for i in self.things:
+            print(i.name)
+
+    def lookAt(self, thing, person_list):
+        found = False
+        for i in range(len(self.things)):
+            if thing.id == self.things[i].id:
+                thing.print_finger(person_list)
+                found = True
+        if not found:
+            print('this thing is not in this room')
+
+    def pick(self, thing, bag):
+        found = False
+        for i in range(len(self.things)):
+            if thing.id == self.things[i].id:
+                thing.pic(bag)
+                found = True
+        if not found:
+            print('this thing is not in this room')
+        
