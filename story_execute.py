@@ -12,7 +12,7 @@ class Execute:
         self.current=1
         help = """
         in this game, you are playing as a detective. solve the case :)
-        there is what you cna do
+        there is what you can do
         move : to move to different rooms
         look : to look at the room and see what is there and how does it looks like
         lookAt : to look at a special thing and see if there is any finger print
